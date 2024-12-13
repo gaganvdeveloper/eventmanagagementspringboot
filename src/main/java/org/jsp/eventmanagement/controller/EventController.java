@@ -20,10 +20,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RestController
 @RequestMapping("/events")
 @CrossOrigin(origins = "*")
+	
 public class EventController {
 
 	@Autowired
 	private EventService service;
+	
 
 	@Operation(summary = "To Create The Event", description = "This API Will Accept The Request body of Event Entity and Persists To The Database table")
 	@ApiResponses({ @ApiResponse(responseCode = "200", description = "Event Saved Sucessfully..."),
@@ -32,6 +34,8 @@ public class EventController {
 	public ResponseEntity<?> saveEvent(@RequestBody Event event) {
 		return service.saveEvent(event);
 	}
+
+	
 
 	@Operation(summary = "To Fetch All The Events", description = "This API Will fecth all the Event's Available in The Databases table...")
 	@ApiResponses({ @ApiResponse(responseCode = "200", description = "All Event's Found Successfully..."),
